@@ -1,0 +1,49 @@
+#include <stdio.h>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "rus");
+    // Объявление указателей на файлы
+    FILE* fileA, * fileB, * fileC;
+    // Объявление переменных для хранения информации
+    int rows, columns;
+
+    // Открытие файлов для чтения 
+    fopen_s(&fileA, "fA.txt", "r");
+    fopen_s(&fileB, "fB.txt", "r");
+    // Создание файла для записи
+    fopen_s(&fileC, "fC.txt", "w");
+
+    // Проверка на успешное открытие файлов
+    if (fileA == NULL || fileB == NULL || fileC == NULL) {
+        perror("Ошибка открытия файлов");
+        return 1;
+    }
+
+    // Чтение размерности матриц из файлов
+    fscanf_s(fileA, "%d %d", &rows, &columns);
+    fscanf_s(fileB, "%d %d", &rows, &columns);
+
+    // Запись размерности матриц в файл-результат
+    fprintf(fileC, "%d %d\n", rows, columns);
+
+    // Сложение матриц и запись результата в файл-результат
+    double elementA, elementB;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            fscanf_s(fileA, "%lf", &elementA);
+            fscanf_s(fileB, "%lf", &elementB);
+            fprintf(fileC, "%.2f ", elementA + elementB);
+        }
+        fprintf(fileC, "\n"); // Переход на новую строку в файле-результате после обработки каждой строки
+    }
+
+    cout << "Матрицы сложены, результат записан в файл fC.txt." << endl;
+
+    // Закрытие файлов
+    fclose(fileA);
+    fclose(fileB);
+    fclose(fileC);
+
+    return 0;
+}

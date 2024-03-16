@@ -1,0 +1,3 @@
+﻿  nomer1.cpp
+D:\2 семестр\ОАиП\4 лаба\variant2\Project1\nomer1.cpp(118): warning C4715: inputAccommodationType: значение возвращается не при всех путях выполнения
+  Project1.vcxproj -> D:\2 семестр\ОАиП\4 лаба\variant2\x64\Debug\Project1.exe
