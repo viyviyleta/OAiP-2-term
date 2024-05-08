@@ -1,0 +1,5 @@
+﻿  4.cpp
+  variant2.cpp
+  Создание кода...
+D:\2 семестр\ОАиП\10 лаба\variant2\Project1\4.cpp(17): warning C4715: taskTwo: значение возвращается не при всех путях выполнения
+  Project1.vcxproj -> D:\2 семестр\ОАиП\10 лаба\variant2\x64\Debug\Project1.exe
